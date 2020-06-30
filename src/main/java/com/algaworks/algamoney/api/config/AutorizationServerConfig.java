@@ -26,14 +26,14 @@ public class AutorizationServerConfig extends AuthorizationServerConfigurerAdapt
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
 			.withClient("angular")
-			.secret("senha")
+			.secret("@ngul@r0")
 			.scopes("read", "write")
 			.authorizedGrantTypes("password", "refresh_token")
 			.accessTokenValiditySeconds(1800)
 			.refreshTokenValiditySeconds(3600 * 24)
 		.and()
 		.withClient("mobile")
-		.secret("m0b1l3")
+		.secret("m0b1l30")
 		.scopes("read")
 		.authorizedGrantTypes("password", "refresh_token")
 		.accessTokenValiditySeconds(1800)
@@ -58,7 +58,7 @@ public class AutorizationServerConfig extends AuthorizationServerConfigurerAdapt
 		return accessTokenConverter;
 	}
 
-	//Onde o token será armazenado
+	//Onde o token é validado, mas não está sendo armazenado
 	@Bean
 	public TokenStore tokenStore() {
 		return new JwtTokenStore(accessTokenConverter());
